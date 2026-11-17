@@ -23,8 +23,17 @@ class CheckoutPage:
             EC.element_to_be_clickable(self.CHECKOUT)
         ).click()
 
-        self.driver.find_element(*self.NOMBRE).send_keys(nombre)
-        self.driver.find_element(*self.APELLIDO).send_keys(apellido)
+        campo_nombre = WebDriverWait(self.driver, 15).until(
+            EC.visibility_of_element_located(self.NOMBRE)
+        )
+
+        campo_nombre.send_keys(nombre)
+
+        campo_apellido = WebDriverWait(self.driver, 15).until(
+            EC.visibility_of_element_located(self.APELLIDO)
+        )
+
+        campo_apellido.send_keys(apellido)
 
         campo_postal = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(self.CODIGO_POSTAL)
