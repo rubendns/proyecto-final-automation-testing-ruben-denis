@@ -19,7 +19,12 @@ class InventoryPage:
         boton_agregar = WebDriverWait(self.driver, 15).until(
             EC.element_to_be_clickable(self.BOTON_AGREGAR)
         )
+
         boton_agregar.click()
+
+        WebDriverWait(self.driver, 15).until(
+            EC.text_to_be_present_in_element(self.CARRITO_CONTADOR, "1")
+        )
 
     def obtener_cantidad_carrito(self):
         contador = WebDriverWait(self.driver, 15).until(
