@@ -12,7 +12,9 @@ class InventoryPage:
         self.driver = driver
 
     def obtener_cantidad_productos(self):
-        productos = self.driver.find_elements(*self.PRODUCTOS)
+        productos = WebDriverWait(self.driver, 15).until(
+            EC.presence_of_all_elements_located(self.PRODUCTOS)
+        )
         return len(productos)
 
     def agregar_mochila_al_carrito(self):
