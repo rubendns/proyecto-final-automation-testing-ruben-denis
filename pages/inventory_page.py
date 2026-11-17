@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class InventoryPage:
@@ -17,4 +19,7 @@ class InventoryPage:
         self.driver.find_element(*self.BOTON_AGREGAR).click()
 
     def obtener_cantidad_carrito(self):
-        return int(self.driver.find_element(*self.CARRITO_CONTADOR).text)
+        contador = WebDriverWait(self.driver, 15).until(
+            EC.visibility_of_element_located(self.CARRITO_CONTADOR)
+        )
+        return int(contador.text)
