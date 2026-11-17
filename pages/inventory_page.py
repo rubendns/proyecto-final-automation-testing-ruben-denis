@@ -16,7 +16,10 @@ class InventoryPage:
         return len(productos)
 
     def agregar_mochila_al_carrito(self):
-        self.driver.find_element(*self.BOTON_AGREGAR).click()
+        boton_agregar = WebDriverWait(self.driver, 15).until(
+            EC.element_to_be_clickable(self.BOTON_AGREGAR)
+        )
+        boton_agregar.click()
 
     def obtener_cantidad_carrito(self):
         contador = WebDriverWait(self.driver, 15).until(
