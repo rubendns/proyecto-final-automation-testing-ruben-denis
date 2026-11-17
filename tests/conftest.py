@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 from pathlib import Path
 import re
@@ -46,8 +47,15 @@ def pytest_runtest_makereport(item, call):
 
 @pytest.fixture
 def driver():
-    navegador = webdriver.Chrome()
+    opciones = webdriver.ChromeOptions()
+
+    if os.getenv("CI") == "true":
+        opciones.add_argument("--headless=new")
+        opciones.add_argument("--no-sandbox")
+        opciones.add_argument("--disable-dev-shm-usage")
+        opciones.add_argument("--window-size=1920,1080")
+
+    navegador = webdriver.Chrome(options=opciones)
 
     yield navegador
-
     navegador.quit()
