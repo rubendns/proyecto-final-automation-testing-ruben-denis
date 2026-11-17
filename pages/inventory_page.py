@@ -1,0 +1,20 @@
+from selenium.webdriver.common.by import By
+
+
+class InventoryPage:
+    PRODUCTOS = (By.CLASS_NAME, "inventory_item")
+    BOTON_AGREGAR = (By.ID, "add-to-cart-sauce-labs-backpack")
+    CARRITO_CONTADOR = (By.CLASS_NAME, "shopping_cart_badge")
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def obtener_cantidad_productos(self):
+        productos = self.driver.find_elements(*self.PRODUCTOS)
+        return len(productos)
+
+    def agregar_mochila_al_carrito(self):
+        self.driver.find_element(*self.BOTON_AGREGAR).click()
+
+    def obtener_cantidad_carrito(self):
+        return int(self.driver.find_element(*self.CARRITO_CONTADOR).text)

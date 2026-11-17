@@ -1,0 +1,14 @@
+{
+  "usuarios": [
+    {
+      "tipo": "valido",
+      "username": "standard_user",
+      "password": "secret_sauce"
+    },
+    {
+      "tipo": "invalido",
+      "username": "usuario_incorrecto",
+      "password": "clave_incorrecta"
+    }
+  ]
+}

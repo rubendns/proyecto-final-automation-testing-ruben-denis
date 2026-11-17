@@ -1,0 +1,23 @@
+# Entorno virtual
+.venv/
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Reportes de pruebas
+reports/*
+!reports/.gitkeep
+
+# Capturas de pantalla
+screenshots/*
+!screenshots/.gitkeep
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Configuración local
+.env
+.vscode/
