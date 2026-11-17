@@ -61,7 +61,7 @@ proyecto-final-automation-testing/
 Clonar el repositorio:
 
 ```powershell
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/rubendns/proyecto-final-automation-testing-ruben-denis.git
 cd proyecto-final-automation-testing
 ```
 
